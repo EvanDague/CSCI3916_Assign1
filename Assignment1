@@ -1,0 +1,28 @@
+Alt-Svc →hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337; quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+Cache-Control →private, max-age=0, must-revalidate, no-transform
+Content-Encoding →gzip
+Content-Type →application/json; charset=UTF-8
+Date →Sat, 03 Feb 2018 05:40:08 GMT  ||  Sat, 03 Feb 2018 05:40:13 GMT
+ETag →"f6QLsd8inUgRKJVNBqJ8xHnPb0w/B5J2etj1AHtkP2Rz4xI3fQRHteA"  ||  "f6QLsd8inUgRKJVNBqJ8xHnPb0w/qBv17KazKNC43hBkTXicgj_ml8c"
+Expires →Sat, 03 Feb 2018 05:40:08 GMT  ||  Sat, 03 Feb 2018 05:40:13 GMT
+Server →GSE
+Transfer-Encoding →chunked
+Vary →Origin
+Vary →X-Origin
+X-Content-Type-Options →nosniff
+X-Frame-Options →SAMEORIGIN
+X-XSS-Protection →1; mode=block
+-------------------------------------------------------------------------------------------
+Alt-Svc: Specifies alternate services.
+Cache-COntrol: Specifies directives for caches along the request/response chain.
+Content-encoding: Indicates what context codings have been applied.
+Context-Type: Indicates the media type of the associated representaton.
+Date: Time the message was originated.
+ETag: Current Entity-Tag for the selected representation.
+Expires: TIme the message becomes stale.
+Server: Software used by the origin server to handle the request.
+Transfer-Encoding: Transfer coding names that have or will be aplied to the payload body.
+Vary: What parts of the message may influence the origin server's process for selecting and representing this response.
+X-Content-Type-Options: Indicates that the MIME types advertised in the Context-Type headers should not be changed and be followed.
+X-Frame-Options: Indicates a policy that specifies hether the browser should render the response within an <iframe>.
+X-XSS-Protection: Stops pages from loading when they detect reflected cross-site scripting attacks.
