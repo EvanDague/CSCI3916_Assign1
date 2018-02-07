@@ -1,0 +1,111 @@
+{
+	"info": {
+		"name": "CSCI3916",
+		"_postman_id": "211b1ff6-bb8a-703e-04b4-490f693d414e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assign1_TuringBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62c31e34-f0bc-41c8-8bc4-7924859bef1a",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"var bookID = jsonData.items[0].id;",
+							"postman.setEnvironmentVariable(\"id\", bookID);",
+							"",
+							"var title = jsonData.items[0].volumeInfo.title;",
+							"var patt = /turing/i;",
+							"var res = patt.test(title);",
+							"",
+							"tests[\"Book title includes turing\"] = (res === true);",
+							"tests[\"Status code 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"books",
+						"v1",
+						"volumes"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{book_title}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Assign1_TuringID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dd1782ea-e960-4c10-8f5c-5a23b841e579",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"var bookID = jsonData.items[0].id;",
+							"",
+							"tests[\"Book ID is correct\"] = (bookID === postman.getEnvironmentVariable(\"id\"));",
+							"tests[\"Status code 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://www.googleapis.com/books/v1/volumes?q={{id}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"books",
+						"v1",
+						"volumes"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{id}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
